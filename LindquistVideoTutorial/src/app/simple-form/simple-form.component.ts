@@ -3,9 +3,20 @@ import { MailService } from '../mail.service';
 @Component({
   selector: 'app-simple-form',
   template: `
-  {{messageSimpleFormInput}}
- <input #myInput  type="text" (keydown)="onKeyDown(myInput.value)">
- <button (click)="onClick($event.clientX, myInput.value)" >Click me!</button><br>
+ 
+ {{messageSimpleFormInput }}<br>
+ 
+ <input 
+   #myInput  
+   type="text" 
+   (keydown)="onKeyDown(myInput.value)"
+   [(ngModel)]="messageSimpleFormInput"
+ >
+ 
+ <button (click)="onClick($event.clientX, myInput.value)" >
+     Click me!
+ </button><br>
+
  {{value}}
   `,
   styles: []
