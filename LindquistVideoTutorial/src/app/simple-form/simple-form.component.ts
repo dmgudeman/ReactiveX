@@ -1,38 +1,35 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { MailService } from '../mail.service';
 @Component({
   selector: 'app-simple-form',
   template: `
- 
- {{messageSimpleFormInput }}<br>
+ <br><br><br>
+ {{"msfi: "+ messageSimpleFormInput }}<br>
  
  <input 
    #myInput  
    type="text" 
    (keydown)="onKeyDown(myInput.value)"
-   [(ngModel)]="messageSimpleFormInput"
- >
+   [(ngModel)]="messageSimpleFormInput">
  
- <button (click)="onClick($event.clientX, myInput.value)" >
+ <button (click)="update.emit({text: message})" >
      Click me!
- </button><br>
+ </button>
 
- {{value}}
+ <p>value from key down: </p>{{value}}
   `,
   styles: []
 })
 export class SimpleFormComponent implements OnInit {
 
   @Input() messageSimpleFormInput;
+  @Output() update = new EventEmitter<any>();
    
   constructor(private mail: MailService) { }
   value: string;
   ngOnInit() {
   }
-  onClick(event, value) {
-    console.log(value);
-    console.log(event);
-  }
+  
   onKeyDown(value) {
     this.value = value;
     console.log(value);

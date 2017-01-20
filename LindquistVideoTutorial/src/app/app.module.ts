@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SimpleFormComponent } from './simple-form/simple-form.component';
+import { OutputFormComponent } from './output-form/output-form.component';
 import { MailService } from './mail.service';
 
 
@@ -12,7 +13,8 @@ import { MailService } from './mail.service';
 @NgModule({
   declarations: [
     AppComponent,
-    SimpleFormComponent
+    SimpleFormComponent,
+    OutputFormComponent
   ],
   imports: [
     BrowserModule,
