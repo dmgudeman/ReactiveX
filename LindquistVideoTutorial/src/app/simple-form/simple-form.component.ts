@@ -3,7 +3,7 @@ import { MailService } from '../mail.service';
 @Component({
   selector: 'app-simple-form',
   template: `
-  {{message}}
+  {{messageSimpleFormInput}}
  <input #myInput  type="text" (keydown)="onKeyDown(myInput.value)">
  <button (click)="onClick($event.clientX, myInput.value)" >Click me!</button><br>
  {{value}}
@@ -12,7 +12,7 @@ import { MailService } from '../mail.service';
 })
 export class SimpleFormComponent implements OnInit {
 
-  @Input() message;
+  @Input() messageSimpleFormInput;
    
   constructor(private mail: MailService) { }
   value: string;

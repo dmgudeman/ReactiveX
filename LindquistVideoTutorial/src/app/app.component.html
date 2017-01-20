@@ -3,8 +3,8 @@
 <div>
   <ul>
     <app-simple-form  
-      *ngFor="let message of mail.messages"
-      [message]="message"
+      *ngFor="let messageForNgFor of mail.messages"
+      [messageSimpleFormInput]="messageForNgFor"
       >
 
     </app-simple-form>
