@@ -1,0 +1,14 @@
+
+
+
+<form [formGroup]="myGroup">
+  <select formControlName="state">
+        <option *ngFor="let state of states" [ngValue]="state">
+          {{ state.abbrev }}
+        </option>
+      </select> 
+      name: <input type="text" formControlName="name"> 
+      Location: <input type="text" formControlName="location">
+</form>
+<p>Form value: {{ myGroup.value | json}}</p>
+<!--{{name: 'New York', abbrev: 'NY'}}-->
